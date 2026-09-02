@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teoría de Juegos y Decisiones del Consumidor | Econometrics ECEM</title>
+  <meta name="description" content="Investigación científica y simulador interactivo de teoría de juegos aplicada a las decisiones del consumidor bajo incertidumbre estratégica y efectos de red. Por Dilan Alexander Manosalvas Andrade - Econometrics ECEM.">
+  
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- KaTeX for crisp mathematical formulas -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header / Navbar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <span class="brand-badge"><i data-lucide="binary"></i> TEORÍA DE JUEGOS</span>
+        <h1 class="brand-title">Econometrics ECEM</h1>
+      </div>
+      <nav class="nav-links">
+        <a href="#simulador" class="nav-link active"><i data-lucide="sliders"></i> Simulador</a>
+        <a href="#modelo" class="nav-link"><i data-lucide="sigma"></i> Modelo Formal</a>
+        <a href="#paper" class="nav-link"><i data-lucide="book-open"></i> Paper Científico</a>
+        <a href="https://econometricis.vercel.app/" target="_blank" class="nav-btn-external">
+          <i data-lucide="globe"></i> econometricis.vercel.app <i data-lucide="arrow-up-right"></i>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-container">
+      <div class="hero-badges">
+        <span class="badge badge-accent"><i data-lucide="award"></i> Investigación Científica 2026</span>
+        <span class="badge badge-subtle">Microeconomía Aplicada & Teoría de la Decisión</span>
+      </div>
+      <h2 class="hero-title">
+        Teoría de Juegos Aplicada a las <span class="gradient-text">Decisiones del Consumidor</span>
+      </h2>
+      <p class="hero-subtitle">
+        Modelo de creencias subjetivas ($q$), pagos esperados y curvas de indiferencia estratégicas en mercados con externalidades de red e incertidumbre colectiva.
+      </p>
+
+      <div class="author-card">
+        <div class="author-avatar">
+          <i data-lucide="user-check"></i>
+        </div>
+        <div class="author-info">
+          <div class="author-name">Dilan Alexander Manosalvas Andrade</div>
+          <div class="author-meta">Investigador Principal • <strong>Econometrics ECEM</strong></div>
+        </div>
+        <a href="https://econometricis.vercel.app/" target="_blank" class="author-link" title="Visitar Sitio Web Oficial">
+          <i data-lucide="external-link"></i> Visitar Web
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Container -->
+  <main class="main-container" id="simulador">
+    
+    <!-- Interactive Lab Grid -->
+    <div class="lab-grid">
+      
+      <!-- Panel de Control y Parámetros -->
+      <div class="card control-card">
+        <div class="card-header">
+          <div class="card-title-group">
+            <i data-lucide="sliders-horizontal" class="icon-accent"></i>
+            <h3>Control de Creencia Subjetiva ($q$)</h3>
+          </div>
+          <span class="pill-status">Interactivo</span>
+        </div>
+        
+        <p class="control-description">
+          Ajusta la probabilidad subjetiva $q$ de que el <strong>Mercado (Jugador 2)</strong> adopte la estrategia <strong>L</strong>. Observa cómo cambia la mejor respuesta del <strong>Consumidor (Jugador 1)</strong> en tiempo real.
+        </p>
+
+        <div class="slider-wrapper">
+          <div class="slider-header">
+            <label for="qSlider" class="slider-label">Creencia Subjetiva $q = P(\text{Mercado adopta } L)$:</label>
+            <div class="slider-value-box">
+              <span id="qDisplay">0.34</span>
+            </div>
+          </div>
+          <input type="range" id="qSlider" min="0" max="1" step="0.01" value="0.34" class="custom-slider">
+          <div class="slider-ticks">
+            <span>0.00 (Seguro R)</span>
+            <span>0.25</span>
+            <span class="tick-critical">0.50 ($q^*$)</span>
+            <span>0.75</span>
+            <span>1.00 (Seguro L)</span>
+          </div>
+        </div>
+
+        <!-- Botones de Escenarios Rápidos -->
+        <div class="presets-section">
+          <div class="presets-title"><i data-lucide="zap"></i> Escenarios Típicos:</div>
+          <div class="presets-buttons">
+            <button class="btn-preset active" data-q="0.34">Caso Base ($q = 0.34$)</button>
+            <button class="btn-preset" data-q="0.15">Mercado Pro-R ($q = 0.15$)</button>
+            <button class="btn-preset" data-q="0.50">Umbral Crítico ($q = 0.50$)</button>
+            <button class="btn-preset" data-q="0.80">Mercado Pro-L ($q = 0.80$)</button>
+          </div>
+        </div>
+
+        <!-- Matriz de Pagos Bimatricial -->
+        <div class="matrix-wrapper">
+          <div class="matrix-title"><i data-lucide="table-2"></i> Matriz de Pagos del Juego $(u_1, u_2)$</div>
+          <div class="game-matrix">
+            <div class="matrix-cell header-empty"></div>
+            <div class="matrix-cell col-header">Mercado: $L$ <span class="sub-prob">($q$)</span></div>
+            <div class="matrix-cell col-header">Mercado: $R$ <span class="sub-prob">($1-q$)</span></div>
+
+            <div class="matrix-cell row-header" id="row-U">Estrategia $U$ <br><small>(Red $R$)</small></div>
+            <div class="matrix-cell payoff-cell" data-strategy="U" data-col="L">$(0, 0)$</div>
+            <div class="matrix-cell payoff-cell" data-strategy="U" data-col="R">$(4, 4)$</div>
+
+            <div class="matrix-cell row-header" id="row-M">Estrategia $M$ <br><small>(Neutral)</small></div>
+            <div class="matrix-cell payoff-cell" data-strategy="M" data-col="L">$(1, 1)$</div>
+            <div class="matrix-cell payoff-cell" data-strategy="M" data-col="R">$(1, 1)$</div>
+
+            <div class="matrix-cell row-header" id="row-D">Estrategia $D$ <br><small>(Red $L$)</small></div>
+            <div class="matrix-cell payoff-cell" data-strategy="D" data-col="L">$(4, 4)$</div>
+            <div class="matrix-cell payoff-cell" data-strategy="D" data-col="R">$(0, 0)$</div>
+          </div>
+        </div>
+
+        <!-- Resultados de Utilidad Esperada -->
+        <div class="payoffs-summary">
+          <h4><i data-lucide="calculator"></i> Pagos Esperados Calculados:</h4>
+          
+          <div class="payoff-item" id="item-U">
+            <div class="item-header">
+              <span class="strategy-badge badge-u">Estrategia $U$</span>
+              <span class="payoff-formula">$$u_1(U \mid q) = 0(q) + 4(1-q)$$</span>
+              <span class="payoff-value" id="val-U">2.64</span>
+            </div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill fill-u" id="bar-U" style="width: 66%;"></div></div>
+          </div>
+
+          <div class="payoff-item" id="item-M">
+            <div class="item-header">
+              <span class="strategy-badge badge-m">Estrategia $M$</span>
+              <span class="payoff-formula">$$u_1(M \mid q) = 1(q) + 1(1-q)$$</span>
+              <span class="payoff-value" id="val-M">1.00</span>
+            </div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill fill-m" id="bar-M" style="width: 25%;"></div></div>
+          </div>
+
+          <div class="payoff-item" id="item-D">
+            <div class="item-header">
+              <span class="strategy-badge badge-d">Estrategia $D$</span>
+              <span class="payoff-formula">$$u_1(D \mid q) = 4(q) + 0(1-q)$$</span>
+              <span class="payoff-value" id="val-D">1.36</span>
+            </div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill fill-d" id="bar-D" style="width: 34%;"></div></div>
+          </div>
+
+          <div class="decision-alert" id="decisionAlert">
+            <i data-lucide="check-circle" class="alert-icon"></i>
+            <div class="alert-content">
+              <strong>Decisión Óptima del Consumidor:</strong>
+              <p id="decisionText">Para $q = 0.34$, la estrategia <strong>$U$</strong> maximiza la utilidad esperada ($E[u]=2.64$).</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Panel de Gráficos y Visualización Científica -->
+      <div class="visuals-column">
+        
+        <!-- Gráfico 1: Espacio de Pagos y Curvas de Indiferencia (EconGraphs) -->
+        <div class="card graph-card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <i data-lucide="trending-up" class="icon-accent"></i>
+              <h3>Espacio de Pagos y Curvas de Indiferencia</h3>
+            </div>
+            <span class="chart-tag">Pendiente: <strong id="slopeDisplay">-0.515</strong></span>
+          </div>
+          <div class="canvas-container">
+            <canvas id="canvasIndifference" width="600" height="420"></canvas>
+          </div>
+          <div class="chart-caption">
+            <strong>Interpretación geométrica:</strong> El eje horizontal representa el pago si el mercado elige $L$ ($u_L$), y el eje vertical el pago si el mercado elige $R$ ($u_R$). Las rectas representan curvas de indiferencia del consumidor con pendiente $-\frac{q}{1-q}$. La estrategia óptima se encuentra en la curva de indiferencia más alta.
+          </div>
+        </div>
+
+        <!-- Gráfico 2: Utilidad Esperada vs Creencia q -->
+        <div class="card graph-card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <i data-lucide="line-chart" class="icon-accent"></i>
+              <h3>Función de Utilidad Esperada $E[u_1]$ vs Creencia $q \in [0, 1]$</h3>
+            </div>
+            <span class="chart-tag">Umbral Crítico: <strong>$q^* = 0.50$</strong></span>
+          </div>
+          <div class="canvas-container">
+            <canvas id="canvasExpectedPayoffs" width="600" height="280"></canvas>
+          </div>
+          <div class="chart-caption">
+            <strong>Bifurcación de Mejor Respuesta:</strong> Para $q < 0.50$ la mejor respuesta es $U$; para $q > 0.50$ es $D$. Nótese que la estrategia neutral $M$ ($E[u]=1$) jamás es óptima, pues es dominada estrictamente por una estrategia mixta.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Sección del Modelo Formal -->
+    <section class="section-container" id="modelo">
+      <div class="section-header">
+        <span class="badge badge-accent">Fundamento Teórico</span>
+        <h2>Propiedades Matemáticas y Teoremas</h2>
+      </div>
+
+      <div class="theorems-grid">
+        <div class="card theorem-card">
+          <div class="theorem-badge">Teorema 1</div>
+          <h4>Pendiente de la Curva de Indiferencia Estratégica</h4>
+          <p>
+            Para una creencia fijada $q \in (0, 1)$, el lugar geométrico de puntos $(x, y) = (u_L, u_R)$ que otorgan el mismo pago esperado $k$ satisface:
+          </p>
+          <div class="math-box">
+            $$q \cdot x + (1 - q) \cdot y = k \implies y(x) = \frac{k}{1-q} - \left(\frac{q}{1-q}\right) x$$
+          </div>
+          <p class="theorem-note">
+            La Tasa Marginal de Sustitución Estratégica entre contingencias es igual a la razón de probabilidades subjetivas $-\frac{q}{1-q}$.
+          </p>
+        </div>
+
+        <div class="card theorem-card">
+          <div class="theorem-badge">Teorema 2</div>
+          <h4>Dominancia Estricta de la Opción Neutral ($M$)</h4>
+          <p>
+            Aunque $M = (1, 1)$ ofrece certeza absoluta de pago $1.00$, la estrategia mixta $\sigma = \frac{1}{2}U + \frac{1}{2}D$ produce:
+          </p>
+          <div class="math-box">
+            $$E[u_1(\sigma \mid q)] = \frac{1}{2}(4 - 4q) + \frac{1}{2}(4q) = 2.00 > 1.00 = E[u_1(M \mid q)] \quad \forall q \in [0, 1]$$
+          </div>
+          <p class="theorem-note">
+            Un consumidor racional bajo la teoría de Von Neumann-Morgenstern jamás seleccionará $M$.
+          </p>
+        </div>
+
+        <div class="card theorem-card">
+          <div class="theorem-badge">Teorema 3</div>
+          <h4>Punto de Bifurcación Crítica ($q^* = 0.50$)</h4>
+          <p>
+            El umbral en el que el consumidor transiciona entre estándares de red ocurre exactamente cuando los pagos esperados se intersectan:
+          </p>
+          <div class="math-box">
+            $$4 - 4q = 4q \iff 8q = 4 \iff q^* = 0.50$$
+          </div>
+          <p class="theorem-note">
+            Pequeñas desviaciones en la expectativa pública ($q > 0.50$ o $q < 0.50$) provocan cascadas de adopción total (efecto *tipping point*).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección del Paper Académico -->
+    <section class="section-container" id="paper">
+      <div class="section-header">
+        <span class="badge badge-accent">Documento Académico</span>
+        <h2>Artículo Científico Completo</h2>
+        <p class="section-subtitle">
+          El manuscrito completo con marco bibliográfico, revisión de literatura de Katz & Shapiro (1985), Schelling (1960), y análisis de políticas de interoperabilidad.
+        </p>
+      </div>
+
+      <div class="card paper-container">
+        <div class="paper-toolbar">
+          <div class="paper-meta">
+            <span><i data-lucide="file-text"></i> investigacion_cientifica.md</span>
+            <span><i data-lucide="calendar"></i> 2026</span>
+            <span><i data-lucide="check"></i> Formato APA 7ma Edición</span>
+          </div>
+          <div class="paper-actions">
+            <a href="docs/investigacion_cientifica.md" target="_blank" class="btn-paper-action"><i data-lucide="external-link"></i> Ver Markdown Original</a>
+          </div>
+        </div>
+
+        <div class="paper-body" id="paperBody">
+          <!-- Se inyecta o muestra el resumen del artículo -->
+          <article class="paper-article">
+            <h1 class="paper-h1">Teoría de Juegos Aplicada a la Toma de Decisiones del Consumidor: Creencias Subjetivas, Externalidades de Red y Selección Estratégica bajo Incertidumbre</h1>
+            
+            <div class="paper-author-block">
+              <strong>Dilan Alexander Manosalvas Andrade</strong><br>
+              <em>Investigador Principal • Econometrics ECEM</em><br>
+              <a href="https://econometricis.vercel.app/" target="_blank">https://econometricis.vercel.app/</a>
+            </div>
+
+            <div class="paper-abstract-box">
+              <h3>Resumen (Abstract)</h3>
+              <p>
+                En la microeconomía neoclásica estándar, la teoría de la elección del consumidor postula que los agentes maximizan su utilidad individual en un entorno paramétrico donde los precios y la oferta están determinados exógenamente, sin considerar la interdependencia estratégica. No obstante, en los mercados contemporáneos caracterizados por bienes de red, plataformas digitales y estándares tecnológicos competitivos, la utilidad de un consumidor depende críticamente de las decisiones adoptadas por los demás agentes económicos.
+              </p>
+              <p>
+                El presente trabajo formula un modelo científico formal fundamentado en la <strong>Teoría de Juegos no cooperativos</strong> para examinar la toma de decisiones del consumidor bajo incertidumbre estratégica. Específicamente, se analiza cómo las creencias subjetivas a priori ($q \in [0, 1]$) determinan el pago esperado de cada alternativa de consumo y orientan la selección de la estrategia óptima. Mediante una formulación matemática rigurosa, representación en el espacio de pagos con curvas de indiferencia estratégicas y una simulación computacional reproducible en Python, se demuestra: (i) la existencia de un umbral crítico de indiferencia $q^* = 0.50$, (ii) la dominancia estricta de ciertas alternativas intermedias frente a mezclas convexas de estrategias polares, y (iii) cómo las trampas de coordinación pueden inducir a equilibrios subóptimos de mercado (efecto lock-in).
+              </p>
+              <div class="paper-jel">
+                <strong>Clasificación JEL:</strong> C72, D11, D81, D84, L15.
+              </div>
+            </div>
+
+            <div class="paper-callout">
+              <i data-lucide="info"></i>
+              <div>
+                Puedes consultar el texto completo, demostraciones analíticas completas y referencias bibliográficas en el archivo <a href="docs/investigacion_cientifica.md"><code>docs/investigacion_cientifica.md</code></a> en el repositorio.
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <h4>Econometrics ECEM</h4>
+        <p>Investigación en Econometría, Microeconomía y Modelado Estratégico.</p>
+        <p class="copyright">© 2026 Dilan Alexander Manosalvas Andrade. Licencia MIT.</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://econometricis.vercel.app/" target="_blank"><i data-lucide="globe"></i> econometricis.vercel.app</a>
+        <a href="https://github.com" target="_blank"><i data-lucide="github"></i> Repositorio GitHub</a>
+        <a href="docs/investigacion_cientifica.md"><i data-lucide="book"></i> Paper Científico</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
