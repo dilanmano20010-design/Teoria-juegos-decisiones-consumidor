@@ -86,10 +86,9 @@ Al graficar el pago esperado para todo $q \in [0, 1]$, se observa claramente que
 ## 📂 Estructura del Repositorio
 
 ```text
-INGESTIGACION GITHUG/
+Teoría de Juegos Analisis Econometrics ECEM/
 │
 ├── README.md                           # Presentación principal del proyecto
-├── GUIA_GITHUB.md                      # Manual paso a paso para subir a GitHub
 ├── LICENSE                             # Licencia de código abierto MIT
 ├── requirements.txt                    # Dependencias de Python
 │
