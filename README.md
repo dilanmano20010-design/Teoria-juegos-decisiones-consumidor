@@ -126,11 +126,6 @@ Teoría de Juegos Analisis Econometrics ECEM/
 
 ---
 
-## 📣 Publicar la versión web en GitHub Pages
-
-La interfaz interactiva ya funciona en el navegador (archivo `index.html`) y no requiere servidor. Para publicarla desde GitHub:
-Sigue estos pasos (Windows — PowerShell) para ejecutar y revisar la simulación localmente.
-
 1) Clonar o descargar el repositorio y abrir PowerShell en la carpeta raíz del proyecto:
 
 ```powershell
