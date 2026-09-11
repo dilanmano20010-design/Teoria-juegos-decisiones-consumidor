@@ -22,10 +22,13 @@ En la microeconomía estándar, la elección del consumidor se estudia típicame
 Este repositorio alberga una **investigación científica formal en Microeconomía y Teoría de Juegos**, que modela cómo las **creencias subjetivas a priori** ($q$) determinan la **utilidad esperada** ($E[u]$), la elección de estrategias óptimas y la formación de **curvas de indiferencia en el espacio de pagos**.
 
 Incluye:
-- 🌐 **Plataforma Web Interactiva (GitHub Pages):** Simulador visual en vivo con cálculo dinámico de utilidades esperadas y curvas de indiferencia en tiempo real ([`index.html`](index.html)).
-- 📄 **Artículo Científico Completo:** Accede al texto formal en [`docs/investigacion_cientifica.md`](docs/investigacion_cientifica.md).
-- 🐍 **Simulación Numérica en Python:** Código reproducible en [`src/simulacion_creencias_consumidor.py`](src/simulacion_creencias_consumidor.py).
-- 📊 **Gráficos de Alta Resolución:** Visualizaciones del espacio de pagos y curvas de indiferencia en `assets/`.
+Este repositorio alberga una **investigación científica formal en Microeconomía y Teoría de Juegos**, que modela cómo las **creencias subjetivas a priori** ($q$) determinan la **utilidad esperada** ($E[u]$), la elección de estrategias óptimas y la formación de **curvas de indiferencia en el espacio de pagos**.
+
+Incluye:
+- 🌐 **Plataforma Web Interactiva (GitHub Pages):** Simulador visual en vivo con cálculo dinámico de utilidades esperadas y curvas de indiferencia en tiempo real ([`index.html`](index.html)). Esta interfaz es completamente cliente (JavaScript), por lo que puede alojarse con GitHub Pages sin dependencias de servidor.
+- 📄 **Artículo Científico Completo:** Accede al texto formal en [`investigacion_cientifica.md`](investigacion_cientifica.md) en la raíz del repositorio.
+- 🐍 **Simulación Numérica en Python:** Código reproducible en [`simulacion_creencias_consumidor.py`](simulacion_creencias_consumidor.py) (archivo en la raíz).
+- 📊 **Gráficos de Alta Resolución:** Visualizaciones del espacio de pagos y curvas de indiferencia en `assets/` (generadas por el script Python o por la versión web).
 - 🚀 **Guía para GitHub & GitHub Pages:** Instrucciones paso a paso en [`GUIA_GITHUB.md`](GUIA_GITHUB.md).
 
 ---
@@ -97,6 +100,9 @@ Teoría de Juegos Analisis Econometrics ECEM/
 │
 ├── src/
 │   └── simulacion_creencias_consumidor.py  # Algoritmo de cálculo y graficación
+├── investigacion_cientifica.md          # Documento académico formal completo (APA 7)
+│
+├── simulacion_creencias_consumidor.py   # Algoritmo de cálculo y graficación (Python)
 │
 └── assets/
     ├── espacio_pagos_indiferencia.png  # Gráfico de curvas de indiferencia
@@ -114,11 +120,70 @@ Teoría de Juegos Analisis Econometrics ECEM/
    ```
 3. **Ejecutar la simulación:**
    ```bash
-   python src/simulacion_creencias_consumidor.py
+   python simulacion_creencias_consumidor.py
    ```
    Los gráficos actualizados se guardarán automáticamente en la carpeta `assets/`.
 
 ---
+
+## 📣 Publicar la versión web en GitHub Pages
+
+La interfaz interactiva ya funciona en el navegador (archivo `index.html`) y no requiere servidor. Para publicarla desde GitHub:
+Sigue estos pasos (Windows — PowerShell) para ejecutar y revisar la simulación localmente.
+
+1) Clonar o descargar el repositorio y abrir PowerShell en la carpeta raíz del proyecto:
+
+```powershell
+cd C:\Users\Usuario\Desktop\Teoria-juegos-decisiones-consumidor-main
+```
+
+2) (Opcional pero recomendado) Crear y activar un entorno virtual:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
+
+Si PowerShell bloquea la activación por política, ejecuta (una sola vez):
+
+```powershell
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force
+```
+
+3) Instalar dependencias (si existe `requirements.txt`) o instalar `numpy` y `matplotlib`:
+
+```powershell
+pip install -r requirements.txt
+# o en su defecto
+pip install numpy matplotlib
+```
+
+4) Ejecutar la simulación en Python (genera imágenes en `assets/`):
+
+```powershell
+python simulacion_creencias_consumidor.py
+```
+
+Salida esperada:
+- "Ejecutando simulación de Teoría de Juegos y Decisiones del Consumidor..."
+- "Gráfico guardado en: assets/grafico_pagos_esperados.png"
+- "Gráfico guardado en: assets/espacio_pagos_indiferencia.png"
+
+5) Abrir la interfaz web localmente
+
+- Abrir el archivo directamente en el navegador:
+
+```powershell
+start .\index.html
+```
+
+- O servir con un servidor HTTP local (recomendado):
+
+```powershell
+python -m http.server 8000
+# y luego abrir en el navegador: http://localhost:8000/
+```
+
 
 ## 📚 Cita Académica
 
