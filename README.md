@@ -15,7 +15,7 @@
 
 ---
 
-## 📌 Descripción del Proyecto
+## Descripción del Proyecto
 
 En la microeconomía estándar, la elección del consumidor se estudia típicamente de forma aislada, donde los individuos maximizan utilidad condicionados únicamente a los precios de mercado y su presupuesto. Sin embargo, en la economía digital y moderna, **las decisiones de consumo están fuertemente interconectadas**: la utilidad de comprar una tecnología, adoptar una red social o elegir una plataforma depende de cuántos otros consumidores hagan lo mismo (**externalidades de red** y **juegos de coordinación**).
 
@@ -27,9 +27,9 @@ Este repositorio alberga una **investigación científica formal en Microeconom�
 Incluye:
 - 🌐 **Plataforma Web Interactiva (GitHub Pages):** Simulador visual en vivo con cálculo dinámico de utilidades esperadas y curvas de indiferencia en tiempo real ([`index.html`](index.html)). Esta interfaz es completamente cliente (JavaScript), por lo que puede alojarse con GitHub Pages sin dependencias de servidor.
 - 📄 **Artículo Científico Completo:** Accede al texto formal en [`investigacion_cientifica.md`](investigacion_cientifica.md) en la raíz del repositorio.
-- 🐍 **Simulación Numérica en Python:** Código reproducible en [`simulacion_creencias_consumidor.py`](simulacion_creencias_consumidor.py) (archivo en la raíz).
-- 📊 **Gráficos de Alta Resolución:** Visualizaciones del espacio de pagos y curvas de indiferencia en `assets/` (generadas por el script Python o por la versión web).
-- 🚀 **Guía para GitHub & GitHub Pages:** Instrucciones paso a paso en [`GUIA_GITHUB.md`](GUIA_GITHUB.md).
+-  **Simulación Numérica en Python:** Código reproducible en [`simulacion_creencias_consumidor.py`](simulacion_creencias_consumidor.py) (archivo en la raíz).
+-  **Gráficos de Alta Resolución:** Visualizaciones del espacio de pagos y curvas de indiferencia en `assets/` (generadas por el script Python o por la versión web).
+
 
 ---
 
@@ -86,7 +86,7 @@ Al graficar el pago esperado para todo $q \in [0, 1]$, se observa claramente que
 
 ---
 
-## 📂 Estructura del Repositorio
+## Estructura del Repositorio
 
 ```text
 Teoría de Juegos Analisis Econometrics ECEM/
@@ -111,7 +111,7 @@ Teoría de Juegos Analisis Econometrics ECEM/
 
 ---
 
-## 🚀 Cómo Reproducir la Simulación Localmente
+##  Cómo Reproducir la Simulación Localmente
 
 1. **Clonar o descargar** este repositorio en tu computadora.
 2. **Instalar dependencias necesarias:**
@@ -180,7 +180,7 @@ python -m http.server 8000
 ```
 
 
-## 📚 Cita Académica
+## Cita Académica
 
 Si utilizas este trabajo, modelo o gráficos para tus proyectos o tesis, puedes citarlo como:
 
